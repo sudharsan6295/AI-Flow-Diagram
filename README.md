@@ -22,9 +22,6 @@ Each stage has a plain-language explanation, an inline SVG diagram that grows cu
 | `index.html` | The whole site: HTML, CSS, JS and SVG in one file. No build step, no dependencies, no network calls. |
 | `og-image.png` | The 1200x630 preview image shown when the link is shared on LinkedIn, Slack, X and similar. |
 | `ai-stack-explained-general.pdf` / `ai-stack-explained-technical.pdf` | Printable versions, linked from the page. |
-| `set-url.sh` | One-line script that fills in your GitHub username and repo name (see below). |
-| `TESTING.md` | A 30-minute protocol for testing the page with real beginners, plus automated results. |
-| `.nojekyll` | Tells GitHub Pages to serve the files as they are. |
 | `README.md` | This file. |
 
 Two views: the page opens in **General** view, written for non-technical readers. Each stage is one screen: a one-line meaning with no jargon, what it gives, the main risk, an everyday comparison and a collapsed "A little more detail" section. The **Technical** toggle in the header shows the full explanations, key terms, technology lists and the complete architecture diagram. Dotted-underline words show a short definition on hover or tap. The choice is remembered in the browser.
@@ -37,21 +34,13 @@ Also on the page: a running example followed through stages 1 to 9, clickable di
 
 Replace `<username>` and `<repo>` with your own values.
 
-### Before you push: set your link
+### Your link
 
-The share preview needs your final address. Run this once (it replaces `YOUR-USERNAME` and `YOUR-REPO` in `index.html`):
-
-```bash
-cd ai-stack-explained
-bash set-url.sh <username> <repo>
-```
-
-On Windows, open `index.html` in any editor and use find and replace instead.
+The share-preview URLs in `index.html` (canonical, `og:url`, `og:image`, `twitter:image`) are already set to `https://sudharsan6295.github.io/AI-Flow-Diagram/`. If you rename the repo or move to a custom domain, find and replace that address in `index.html`.
 
 ### Option A: command line
 
 ```bash
-cd ai-stack-explained
 git init
 git add .
 git commit -m "Add AI stack explainer"
@@ -70,7 +59,6 @@ Then in the browser:
 ### Option B: GitHub CLI
 
 ```bash
-cd ai-stack-explained
 git init && git add . && git commit -m "Add AI stack explainer" && git branch -M main
 gh repo create <repo> --public --source=. --push
 gh api -X POST repos/<username>/<repo>/pages -f "source[branch]=main" -f "source[path]=/"
