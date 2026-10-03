@@ -405,11 +405,11 @@ table.sum th,table.sum td{padding:12px 14px}table.sum tr:hover td{background:col
 :root[data-theme="dark"] .pills a.on b{background:rgba(8,12,23,.18)}
 /* ---- hero spans the full screen; the rest of the page keeps its width ---- */
 main{max-width:none;padding-left:0;padding-right:0}
-main>*,.hero>:not(.intro){width:min(1088px,calc(100% - 32px));margin-left:auto;margin-right:auto}
+main>*,.hero>*{width:min(1088px,calc(100% - 32px));margin-left:auto;margin-right:auto}
 main>.hero{width:auto;max-width:none;margin-left:0;margin-right:0}
-.intro{box-sizing:border-box;padding-left:clamp(16px,3.5vw,56px);padding-right:clamp(16px,3.5vw,56px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:clamp(24px,4vw,64px);align-items:start}
+.intro{box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:40px;align-items:start}
 .intro>h1,.intro>.by,.intro>.actions{grid-column:1/-1}
-.intro h1{max-width:none;font-size:clamp(34px,5.6vw,80px)}
+.intro h1{max-width:none;font-size:clamp(34px,5.6vw,64px)}
 .intro p{max-width:none}
 @media (max-width:820px){.intro{grid-template-columns:minmax(0,1fr)}}
 </style>
